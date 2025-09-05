@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>quiet—</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-0: #0b0b0d;
+        --bg-1: #111115;
+        --text-0: #f4f6fb;
+        --text-1: #cfd3e0;
+        --muted: #8a90a6;
+        --radius: 12px;
+        --maxw: 1000px;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
+        color: var(--text-0);
+        line-height: 1.6;
+      }
+      .container {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 1.25rem;
+      }
+
+      .hero {
+        padding: 5rem 0 3rem;
+      }
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        font-size: clamp(2.2rem, 6vw, 3.5rem);
+        line-height: 1.05;
+        margin: 0 0 1rem;
+        text-align: left;
+      }
+      .hero p {
+        color: var(--text-1);
+        max-width: 52ch;
+        margin: 0;
+        font-size: 1.05rem;
+        text-align: left;
+      }
+
+      .section {
+        margin: 3rem auto;
+      }
+      .section h2 {
+        font-size: 1.1rem;
+        color: var(--muted);
+        text-transform: lowercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .poem-photo {
+        display: grid;
+        gap: 2rem;
+        align-items: start;
+      }
+      @media (min-width: 800px) {
+        .poem-photo {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .poem {
+        white-space: pre-wrap;
+        font-size: 1.05rem;
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+        color: var(--text-0);
+      }
+      .image-wrap {
+        margin: 0;
+        padding: 0;
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: #0d0d12;
+      }
+      .image-wrap img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+      }
+
+      .form {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .form input,
+      .form button {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .form input {
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+        background: #0e0e14;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-0);
+        font: inherit;
+        outline: none;
+      }
+      .form button {
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        border: none;
+        background: #f4f6fb;
+        color: #0b0b0d;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .form button:hover {
+        background: #e6e9ee;
+      }
+
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: 3rem;
+        padding: 2rem 0;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.95rem;
+      }
+      :focus-visible {
+        outline: 2px solid rgba(244, 246, 251, 0.9);
+        outline-offset: 2px;
+      }
+      .muted-left {
+        text-align: left;
+        color: var(--text-1);
+        max-width: 52ch;
+        margin-top: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>quiet—</h1>
+          <p>
+            this project is about giving publicity to small independent
+            photographers by pairing their images with poems. there is place for
+            up to 100 photographers to join and be featured.
+          </p>
+        </div>
+      </section>
+
+      <section id="sample" class="container section">
+        <h2>Sample Pairing</h2>
+        <div class="poem-photo container">
+          <div>
+            <div class="poem">i bought these pants because they were half price 
+they were corduroy
+brown wrinkled in a way that shows i have lived a little
+i found a folded slip of paper 
+tucked into the left front pocket
+it was a poem
+written in blue pen
+on lined paper torn from a notebook
+there were no rhymes
+[...]
+            </div>
+          </div>
+          <div>
+            <div class="image-wrap">
+              <img src="corduroy.jpg" alt="sample photograph" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="collab" class="container section">
+        <h2>Collaborate</h2>
+        <p class="muted-left">fill out the form to be part of quiet—</p>
+        <form class="form" id="collabForm" onsubmit="return false;">
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="your name"
+            required
+          />
+          <input
+            id="portfolio"
+            name="portfolio"
+            type="url"
+            placeholder="portfolio url"
+            required
+          />
+          <button id="sendBtn" type="button">send submission</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© <span id="year"></span> tyson horvath</p>
+        <a href="mailto:collaborate@quietbook.store" style="color: #c1c7e6"
+          >collaborate@quietbook.store</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function buildMailto(name, portfolio) {
+        const subject =
+          "Quiet— Collaboration Request from " + name + " (" + portfolio + ")";
+        return (
+          "mailto:collaborate@quietbook.store?subject=" +
+          encodeURIComponent(subject)
+        );
+      }
+
+      document.getElementById("sendBtn").addEventListener("click", () => {
+        const name = document.getElementById("name").value.trim();
+        const portfolio = document.getElementById("portfolio").value.trim();
+        if (!name || !portfolio) {
+          alert("please fill in all fields.");
+          return;
+        }
+        window.location.href = buildMailto(name, portfolio);
+      });
+    </script>
+  </body>
+</html>
